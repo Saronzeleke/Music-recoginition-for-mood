@@ -221,7 +221,7 @@ async def analyze_voice(file: UploadFile = File(...), place: Optional[str] = Non
 
 @app.post("/recognize-command", response_model=dict)
 async def recognize_command(file: UploadFile = File(...)):
-    """Recognize Amharic voice commands and update mood."""
+    
     if not file.filename.endswith((".wav", ".mp3")):
         raise HTTPException(status_code=400, detail="Only WAV or MP3 files supported.")
     
