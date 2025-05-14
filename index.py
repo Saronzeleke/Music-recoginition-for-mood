@@ -151,14 +151,14 @@ class Music(Mood):
        if self.mood is None:
            raise HTTPException(status_code=400,detail="Mood not sent 🤦‍♀️")
        
-        mood_name = {0: "happy", 1: "sad", 2: "angry", 3: "relaxed"}[self.mood]
-        if context == "period_relaxation" and place == "taxi":
-            return f"Ayzosh, relax in the taxi with these soothing Protestant {mood_name} hymns."
-        elif place == "taxi":
-            return f"Enjoy your taxi ride with these Protestant {mood_name} hymns!"
-        elif context == "period_relaxation":
-            return f"Ayzosh, take it easy with these Protestant {mood_name} hymns for your comfort."
-        return f"Here's some Protestant {mood_name} music for your worship!"
+       mood_name = {0: "happy", 1: "sad", 2: "angry", 3: "relaxed"}[self.mood]
+       if context == "period_relaxation" and place == "taxi":
+           return f"Ayzosh, relax in the taxi with these soothing Protestant {mood_name} hymns."
+       elif place == "taxi":
+           return f"Enjoy your taxi ride with these Protestant {mood_name} hymns!"
+       elif context == "period_relaxation":
+           return f"Ayzosh, take it easy with these Protestant {mood_name} hymns for your comfort."
+       return f"Here's some Protestant {mood_name} music for your worship!"
 
     def generate_preview(self, stream_url: str, output_file: str, duration: int = 10000):
         """Generate a 10-second preview from a streaming URL."""
