@@ -3,7 +3,6 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras import layers, models
 from fastapi import FastAPI, UploadFile, File, HTTPException
-from fastapi.responses import FileResponse
 from pydantic import BaseModel
 import os
 from typing import List, Optional
