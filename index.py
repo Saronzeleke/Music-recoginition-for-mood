@@ -246,7 +246,7 @@ async def recognize_command(file: UploadFile = File(...)):
 
 @app.post("/recommend-context", response_model=dict)
 async def recommend_context(context_input: ContextInput):
-    """Recommend music based on mood, place, and context."""
+    
     if context_input.mood:
         music_recommender.set_mood(context_input.mood)
     if music_recommender.get_mood() is None:
