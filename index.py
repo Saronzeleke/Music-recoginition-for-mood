@@ -183,7 +183,7 @@ class ContextInput(BaseModel):
 
 @app.post("/set-mood", response_model=dict)
 async def set_mood(mood_input: MoodInput):
-    """Set the user's mood and return the mood code."""
+   
     mood_code = music_recommender.set_mood(mood_input.mood)
     return {"mood": mood_input.mood, "mood_code": mood_code}
 
