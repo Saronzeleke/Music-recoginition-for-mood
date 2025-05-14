@@ -157,7 +157,7 @@ class Music(Mood):
        elif place == "taxi":
            return f"Enjoy your taxi ride with these Protestant {mood_name} hymns!"
        elif context == "period_relaxation":
-           return f"Ayzosh, take it easy with these Protestant {mood_name} hymns for your comfort."
+           return f"Ayzosh, God is with you  with these Protestant {mood_name} hymns for your comfort."
        return f"Here's some Protestant {mood_name} music for your worship!"
 
     def generate_preview(self, stream_url: str, output_file: str, duration: int = 10000):
