@@ -141,7 +141,7 @@ class Music(Mood):
             features = features.reshape(1, -1)
             prediction = self.command_model.predict(features, verbose=0)
             command_idx = np.argmax(prediction, axis=1)[0]
-            commands = ["ayzosh", "Haleluya", "other"]
+            commands = ["Don't worry", "Haleluya", "other"]
             command = commands[command_idx]
             self.mood = self.command_to_mood[command]
             return command
