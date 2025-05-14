@@ -113,7 +113,7 @@ class Music(Mood):
             raise HTTPException(status_code=400, detail=f"Error processing audio: {e}")
 
     def recommend_music(self, place: str = None, context: str = None) -> List[dict]:
-        """Recommend music based on mood, place, and context."""
+      
         songs = self.music_library.get(self.mood, self.music_library[3])
         if place == "taxi":
             songs = [s for s in songs if 3 <= s["duration"] <= 5]
