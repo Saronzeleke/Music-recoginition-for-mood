@@ -57,7 +57,7 @@ class Music(Mood):
         self.command_to_mood = {
             "ayzosh": 1,  
             "selam": 0,
-            "other": 3    # Neutral
+            "other": 3
         }
         # Optional Spotify setup for ETEX (uncomment and configure)
         # import spotipy
