@@ -191,13 +191,13 @@ async def set_mood(mood_input: MoodInput):
 async def get_recommendations():
    
     if music_recommender.get_mood() is None:
-        raise HTTPException(status_code=400, detail="Mood not set. Use /set-mood first.")
+        raise HTTPException(status_code=400, detail="Mood not set 😊. Use /set-mood first.")
     songs = music_recommender.recommend_music()
     return {"mood_code": music_recommender.get_mood(), "recommended_songs": songs}
 
 @app.post("/analyze-voice", response_model=dict)
 async def analyze_voice(file: UploadFile = File(...), place: Optional[str] = None, context: Optional[str] = None):
-    """Analyze a voice file to predict mood with context."""
+    
     if not file.filename.endswith((".wav", ".mp3")):
         raise HTTPException(status_code=400, detail="Only WAV or MP3 files supported.")
     
