@@ -289,7 +289,7 @@ async def stream_song(title: str):
 
 @app.get("/generate-preview", response_model=dict)
 async def generate_preview(title: str):
-    """Generate and return a 10-second preview for a song."""
+  
     for mood_songs in music_recommender.music_library.values():
         for song in mood_songs:
             if song["title"] == title:
