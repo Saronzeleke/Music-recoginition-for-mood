@@ -55,7 +55,7 @@ class Music(Mood):
             ]
         }
         self.command_to_mood = {
-            "ayzosh": 1,  # Sad/calm
+            "ayzosh": 1,  
             "selam": 0,   # Happy
             "other": 3    # Neutral
         }
