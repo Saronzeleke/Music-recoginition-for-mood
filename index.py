@@ -7,10 +7,10 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 import os
 from typing import List, Optional
-
+from datetime import datetime
 from pydub import AudioSegment
 
-app = FastAPI(title="Deep Learning Mood & Context Music Recommender with Streaming")
+app = FastAPI(title="Protestant Mood & Context Music Recommender with Streaming")
 
 class Mood:
     def __init__(self):
@@ -40,20 +40,20 @@ class Music(Mood):
         self.command_model = self.build_command_model()
         self.music_library = {
             0: [  # Happy
-                {"title": "Happy", "artist": "Pharrell Williams", "duration": 3.9, "tempo": 160, "mood": "happy", "stream_url": "https://www.youtube.com/watch?v=ZbZSe6N_BXs"},
-                {"title": "Yasteseryal", "artist": "Teddy Afro", "duration": 4.5, "tempo": 120, "mood": "happy", "stream_url": "https://www.youtube.com/watch?v=0R_5SJnqTfs"}
+                {"title": "Amazing Grace", "artist": "Traditional (John Newton)", "duration": 4.0, "tempo": 90, "mood": "happy", "stream_url": "https://www.youtube.com/watch?v=CDdvReNKKuk"},
+                {"title": "Holy Holy Holy", "artist": "Reginald Heber", "duration": 3.8, "tempo": 100, "mood": "happy", "stream_url": "https://www.youtube.com/watch?v=AgHrNNM23p8"}
             ],
             1: [  # Sad
-                {"title": "Someone Like You", "artist": "Adele", "duration": 4.8, "tempo": 68, "mood": "sad", "stream_url": "https://www.youtube.com/watch?v=hLQl3WQQoQ0"},
-                {"title": "Yeweyn Abeba", "artist": "Aster Aweke", "duration": 5.2, "tempo": 80, "mood": "sad", "stream_url": "https://www.youtube.com/watch?v=2lQz0q1bwsQ"}
+                {"title": "What a Friend We Have in Jesus", "artist": "Joseph M. Scriven", "duration": 4.2, "tempo": 70, "mood": "sad", "stream_url": "https://www.youtube.com/watch?v=8SCorW9r_Is"},
+                {"title": "Rock of Ages", "artist": "Augustus Toplady", "duration": 3.5, "tempo": 65, "mood": "sad", "stream_url": "https://www.youtube.com/watch?v=gM7gt_cSxjw"}
             ],
             2: [  # Angry
-                {"title": "Sweet but Psycho", "artist": "Ava Max", "duration": 3.1, "tempo": 133, "mood": "angry", "stream_url": "https://www.youtube.com/watch?v=WXBHCQYxwr0"},
-                {"title": "Bati", "artist": "Mahmoud Ahmed", "duration": 3.5, "tempo": 140, "mood": "angry", "stream_url": "https://www.youtube.com/watch?v=4iX_3gV53eI"}
+                {"title": "A Mighty Fortress Is Our God", "artist": "Martin Luther", "duration": 4.1, "tempo": 120, "mood": "angry", "stream_url": "https://www.youtube.com/watch?v=O6k8DFb8fWs"},
+                {"title": "Nothing but the Blood of Jesus", "artist": "Robert Lowry", "duration": 3.3, "tempo": 110, "mood": "angry", "stream_url": "https://www.youtube.com/watch?v=BeVZG7J_8e4"}
             ],
             3: [  # Relaxed
-                {"title": "Come Away With Me", "artist": "Norah Jones", "duration": 3.3, "tempo": 81, "mood": "relaxed", "stream_url": "https://www.youtube.com/watch?v=lbjZPFBD6JU"},
-                {"title": "Yegle Tizita", "artist": "Mulatu Astatke", "duration": 4.8, "tempo": 90, "mood": "relaxed", "stream_url": "https://www.youtube.com/watch?v=gsM714kCPQ4"}
+                {"title": "How Great Thou Art", "artist": "Carl Boberg", "duration": 4.8, "tempo": 80, "mood": "relaxed", "stream_url": "https://www.youtube.com/watch?v=Cc0QVWzCv9k"},
+                {"title": "Be Thou My Vision", "artist": "Traditional Irish", "duration": 3.7, "tempo": 85, "mood": "relaxed", "stream_url": "https://www.youtube.com/watch?v=5XZ3ja-quE0"}
             ]
         }
         self.command_to_mood = {
@@ -61,7 +61,7 @@ class Music(Mood):
             "selam": 0,   # Happy
             "other": 3    # Neutral
         }
-        # Optional Spotify setup (uncomment and configure for ETEX)
+        # Optional Spotify setup for ETEX (uncomment and configure)
         # import spotipy
         # from spotipy.oauth2 import SpotifyClientCredentials
         # self.sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(
@@ -69,10 +69,10 @@ class Music(Mood):
         #     client_secret="YOUR_CLIENT_SECRET"
         # ))
         # self.music_library = {
-        #     0: [{"title": "Happy", "artist": "Pharrell Williams", "duration": 3.9, "tempo": 160, "mood": "happy", "stream_url": self.get_spotify_url("4phGZZrJZ7BrJSC6kYpL0")}],
-        #     1: [{"title": "Someone Like You", "artist": "Adele", "duration": 4.8, "tempo": 68, "mood": "sad", "stream_url": self.get_spotify_url("6QPKYGnAW9QozVzGNIrCii")}],
-        #     2: [{"title": "Sweet but Psycho", "artist": "Ava Max", "duration": 3.1, "tempo": 133, "mood": "angry", "stream_url": self.get_spotify_url("2KNY3B4NxtV1T1YIkDx6sO")}],
-        #     3: [{"title": "Come Away With Me", "artist": "Norah Jones", "duration": 3.3, "tempo": 81, "mood": "relaxed", "stream_url": self.get_spotify_url("0u6JHDX60W0f0GGl1NabLu")}]
+        #     0: [{"title": "Amazing Grace", "artist": "Traditional (John Newton)", "duration": 4.0, "tempo": 90, "mood": "happy", "stream_url": self.get_spotify_url("3z9U1N6zqHK7qZlbS0hS30")}],
+        #     1: [{"title": "What a Friend We Have in Jesus", "artist": "Joseph M. Scriven", "duration": 4.2, "tempo": 70, "mood": "sad", "stream_url": self.get_spotify_url("5z9z8q0q4q8q1z2z3z4z5z")}],
+        #     2: [{"title": "A Mighty Fortress Is Our God", "artist": "Martin Luther", "duration": 4.1, "tempo": 120, "mood": "angry", "stream_url": self.get_spotify_url("6z9z8q0q4q8q1z2z3z4z5z")}],
+        #     3: [{"title": "How Great Thou Art", "artist": "Carl Boberg", "duration": 4.8, "tempo": 80, "mood": "relaxed", "stream_url": self.get_spotify_url("7z9z8q0q4q8q1z2z3z4z5z")}]
         # }
 
     def get_spotify_url(self, track_id: str) -> str:
@@ -153,17 +153,17 @@ class Music(Mood):
         """Generate a personalized playlist message."""
         mood_name = {0: "happy", 1: "sad", 2: "angry", 3: "relaxed"}[self.mood]
         if context == "period_relaxation" and place == "taxi":
-            return f"Ayzosh, relax in the taxi with these soothing {mood_name} songs."
+            return f"Ayzosh, relax in the taxi with these soothing Protestant {mood_name} hymns."
         elif place == "taxi":
-            return f"Enjoy your taxi ride with these {mood_name} tunes!"
+            return f"Enjoy your taxi ride with these Protestant {mood_name} hymns!"
         elif context == "period_relaxation":
-            return f"Ayzosh, take it easy with these {mood_name} songs for your comfort."
-        return f"Here's some {mood_name} music for you!"
+            return f"Ayzosh, take it easy with these Protestant {mood_name} hymns for your comfort."
+        return f"Here's some Protestant {mood_name} music for your worship!"
 
     def generate_preview(self, stream_url: str, output_file: str, duration: int = 10000):
         """Generate a 10-second preview from a streaming URL."""
         try:
-            # Placeholder: use local file for demo (replace with youtube-dl for real URLs)
+            # Placeholder: use local file for demo (use youtube-dl for real URLs)
             audio = AudioSegment.from_file("sample_song.mp3")
             preview = audio[:duration]
             preview.export(output_file, format="wav")
@@ -272,7 +272,7 @@ async def get_playlist_message(context_input: ContextInput):
     return {
         "message": message,
         "mood_code": music_recommender.get_mood(),
-        "mood": {0: "happy", 1: "sad", 2: "angry", 3: "relaxed"}[mood_recommender.get_mood()],
+        "mood": {0: "happy", 1: "sad", 2: "angry", 3: "relaxed"}[music_recommender.get_mood()],
         "place": context_input.place,
         "context": context_input.context,
         "recommended_songs": songs
