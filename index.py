@@ -285,7 +285,7 @@ async def stream_song(title: str):
         for song in mood_songs:
             if song["title"] == title:
                 return {"title": title, "stream_url": song["stream_url"]}
-    raise HTTPException(status_code=404, detail="Song not found.")
+    raise HTTPException(status_code=404, detail="Song not found.😢")
 
 @app.get("/generate-preview", response_model=dict)
 async def generate_preview(title: str):
