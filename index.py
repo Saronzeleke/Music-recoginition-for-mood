@@ -262,7 +262,7 @@ async def recommend_context(context_input: ContextInput):
 
 @app.post("/playlist-message", response_model=dict)
 async def get_playlist_message(context_input: ContextInput):
-    """Get a personalized playlist message with recommendations."""
+    
     if context_input.mood:
         music_recommender.set_mood(context_input.mood)
     if music_recommender.get_mood() is None:
