@@ -122,7 +122,7 @@ class Music(Mood):
         return songs[:2]
 
     def analyze_voice_mood(self, voice_file: str, place: str = None, context: str = None):
-        """Predict mood from voice with context."""
+        
         features = self.extract_audio_features(voice_file)
         if features is not None:
             features = features.reshape(1, 20, 1)
