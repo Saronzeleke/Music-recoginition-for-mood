@@ -135,7 +135,7 @@ class Music(Mood):
         return None
 
     def recognize_command(self, audio_file: str):
-        """Recognize Amharic voice commands."""
+        
         features = self.extract_audio_features(audio_file)
         if features is not None:
             features = features.reshape(1, -1)
