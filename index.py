@@ -45,7 +45,7 @@ class Music(Mood):
                 {"title": "What a Friend We Have in Jesus", "artist": "Joseph M. Scriven", "duration": 4.2, "tempo": 70, "mood": "sad", "stream_url": "https://www.youtube.com/watch?v=8SCorW9r_Is"},
                 {"title": "Rock of Ages", "artist": "Augustus Toplady", "duration": 3.5, "tempo": 65, "mood": "sad", "stream_url": "https://www.youtube.com/watch?v=gM7gt_cSxjw"}
             ],
-            2: [  # Angry
+            2: [  
                 {"title": "A Mighty Fortress Is Our God", "artist": "Martin Luther", "duration": 4.1, "tempo": 120, "mood": "angry", "stream_url": "https://www.youtube.com/watch?v=O6k8DFb8fWs"},
                 {"title": "Nothing but the Blood of Jesus", "artist": "Robert Lowry", "duration": 3.3, "tempo": 110, "mood": "angry", "stream_url": "https://www.youtube.com/watch?v=BeVZG7J_8e4"}
             ],
