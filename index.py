@@ -74,7 +74,7 @@ class Music(Mood):
         # }
 
     def get_spotify_url(self, track_id: str) -> str:
-        """Fetch Spotify track preview URL."""
+       
         track = self.sp.track(track_id)
         return track["preview_url"] if track["preview_url"] else track["external_urls"]["spotify"]
 
