@@ -94,7 +94,7 @@ class Music(Mood):
         return model
 
     def build_command_model(self):
-        """Build a model for Amharic command recognition."""
+       
         model = models.Sequential([
             layers.Dense(64, activation='relu', input_shape=(20,)),
             layers.Dense(32, activation='relu'),
