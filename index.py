@@ -104,7 +104,7 @@ class Music(Mood):
         return model
 
     def extract_audio_features(self, audio_file: str):
-        """Extract MFCC features from an audio file."""
+       
         try:
             y, sr = librosa.load(audio_file)
             mfcc = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=20)
