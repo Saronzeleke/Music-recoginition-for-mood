@@ -189,7 +189,7 @@ async def set_mood(mood_input: MoodInput):
 
 @app.get("/recommend-music", response_model=dict)
 async def get_recommendations():
-    """Get music recommendations based on the current mood."""
+   
     if music_recommender.get_mood() is None:
         raise HTTPException(status_code=400, detail="Mood not set. Use /set-mood first.")
     songs = music_recommender.recommend_music()
