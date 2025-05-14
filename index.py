@@ -150,6 +150,7 @@ class Music(Mood):
     def generate_playlist_message(self, place: str = None, context: str = None) -> str:
        if self.mood is None:
            raise HTTPException(status_code=400,detail="Mood not sent 🤦‍♀️")
+       
         mood_name = {0: "happy", 1: "sad", 2: "angry", 3: "relaxed"}[self.mood]
         if context == "period_relaxation" and place == "taxi":
             return f"Ayzosh, relax in the taxi with these soothing Protestant {mood_name} hymns."
