@@ -250,7 +250,7 @@ async def recommend_context(context_input: ContextInput):
     if context_input.mood:
         music_recommender.set_mood(context_input.mood)
     if music_recommender.get_mood() is None:
-        raise HTTPException(status_code=400, detail="Mood not set or provided.")
+        raise HTTPException(status_code=400, detail="Mood not set.🤦‍♀️")
     songs = music_recommender.recommend_music(context_input.place, context_input.context)
     return {
         "mood_code": music_recommender.get_mood(),
