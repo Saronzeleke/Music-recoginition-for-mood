@@ -79,7 +79,7 @@ class Music(Mood):
         return track["preview_url"] if track["preview_url"] else track["external_urls"]["spotify"]
 
     def build_context_model(self):
-        """Build a CNN-LSTM model for mood, place, and context."""
+       
         inputs = layers.Input(shape=(20, 1))
         x = layers.Conv1D(64, kernel_size=3, activation='relu')(inputs)
         x = layers.MaxPooling1D(pool_size=2)(x)
