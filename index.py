@@ -280,7 +280,7 @@ async def get_playlist_message(context_input: ContextInput):
 
 @app.get("/stream-song", response_model=dict)
 async def stream_song(title: str):
-    """Return the streaming URL for a song."""
+    
     for mood_songs in music_recommender.music_library.values():
         for song in mood_songs:
             if song["title"] == title:
