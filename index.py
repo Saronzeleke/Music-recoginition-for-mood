@@ -15,7 +15,7 @@ class Mood:
         self.mood = None
 
     def set_mood(self, mood: str) -> int:
-        """Map mood string to numerical value."""
+        
         self.mood = mood.lower()
         if self.mood == "happy":
             self.mood = 0
