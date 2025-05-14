@@ -7,7 +7,6 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 import os
 from typing import List, Optional
-from datetime import datetime
 from pydub import AudioSegment
 
 app = FastAPI(title="Protestant Mood & Context Music Recommender with Streaming")
