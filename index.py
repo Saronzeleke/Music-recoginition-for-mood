@@ -39,7 +39,7 @@ class Music(Mood):
         self.music_library = {
             0: [  
                 {"title": "Amazing Grace", "artist": "Traditional (John Newton)", "duration": 4.0, "tempo": 90, "mood": "happy", "stream_url": "https://www.youtube.com/watch?v=CDdvReNKKuk"},
-                {"title": "Holy Holy Holy", "artist": "Reginald Heber", "duration": 3.8, "tempo": 100, "mood": "happy", "stream_url": "https://www.youtube.com/watch?v=AgHrNNM23p8"}
+                {"title": "Haleluya", "artist": "Reginald Heber", "duration": 3.8, "tempo": 100, "mood": "happy", "stream_url": "https://youtu.be/0AVT8Vp6Jxs?si=7N_g3Bw6M4heK-yp"}
             ],
             1: [  
                 {"title": "What a Friend We Have in Jesus", "artist": "Joseph M. Scriven", "duration": 4.2, "tempo": 70, "mood": "sad", "stream_url": "https://www.youtube.com/watch?v=8SCorW9r_Is"},
