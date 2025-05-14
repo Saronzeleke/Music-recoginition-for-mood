@@ -28,7 +28,7 @@ class Mood:
         return self.mood
 
     def get_mood(self) -> int:
-        """Return the current mood value."""
+        
         return self.mood
 
 class Music(Mood):
