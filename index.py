@@ -161,7 +161,7 @@ class Music(Mood):
        return f"Here's some Protestant {mood_name} music for your worship!"
 
     def generate_preview(self, stream_url: str, output_file: str, duration: int = 10000):
-        """Generate a 10-second preview from a streaming URL."""
+      
         try:
         
             audio = AudioSegment.from_file("sample_song.mp3")
