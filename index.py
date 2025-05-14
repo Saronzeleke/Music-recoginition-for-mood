@@ -37,7 +37,7 @@ class Music(Mood):
         self.model = self.build_context_model()
         self.command_model = self.build_command_model()
         self.music_library = {
-            0: [  # Happy
+            0: [  
                 {"title": "Amazing Grace", "artist": "Traditional (John Newton)", "duration": 4.0, "tempo": 90, "mood": "happy", "stream_url": "https://www.youtube.com/watch?v=CDdvReNKKuk"},
                 {"title": "Holy Holy Holy", "artist": "Reginald Heber", "duration": 3.8, "tempo": 100, "mood": "happy", "stream_url": "https://www.youtube.com/watch?v=AgHrNNM23p8"}
             ],
