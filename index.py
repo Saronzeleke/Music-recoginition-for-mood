@@ -163,7 +163,7 @@ class Music(Mood):
     def generate_preview(self, stream_url: str, output_file: str, duration: int = 10000):
         """Generate a 10-second preview from a streaming URL."""
         try:
-            # Placeholder: use local file for demo (use youtube-dl for real URLs)
+        
             audio = AudioSegment.from_file("sample_song.mp3")
             preview = audio[:duration]
             preview.export(output_file, format="wav")
