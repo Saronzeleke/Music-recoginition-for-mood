@@ -49,7 +49,7 @@ class Music(Mood):
                 {"title": "A Mighty Fortress Is Our God", "artist": "Martin Luther", "duration": 4.1, "tempo": 120, "mood": "angry", "stream_url": "https://www.youtube.com/watch?v=O6k8DFb8fWs"},
                 {"title": "Nothing but the Blood of Jesus", "artist": "Robert Lowry", "duration": 3.3, "tempo": 110, "mood": "angry", "stream_url": "https://www.youtube.com/watch?v=BeVZG7J_8e4"}
             ],
-            3: [  # Relaxed
+            3: [  
                 {"title": "How Great Thou Art", "artist": "Carl Boberg", "duration": 4.8, "tempo": 80, "mood": "relaxed", "stream_url": "https://www.youtube.com/watch?v=Cc0QVWzCv9k"},
                 {"title": "Be Thou My Vision", "artist": "Traditional Irish", "duration": 3.7, "tempo": 85, "mood": "relaxed", "stream_url": "https://www.youtube.com/watch?v=5XZ3ja-quE0"}
             ]
